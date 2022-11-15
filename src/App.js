@@ -5,6 +5,7 @@ import Video from './pages/Video'
 import './app.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './com/Nav'
+import EmotionDetection from './pages/EmotionDetection'
 function App() {
   return (
     
@@ -14,6 +15,7 @@ function App() {
           <Route  path="/" element={<Homepage />} />
           <Route path="/music" element={<Music />} />
           <Route path='/video' element={<Video/>}/>
+          <Route path='/emotion' element={<EmotionDetection/>}/>
         </Routes>
       </Router>
       

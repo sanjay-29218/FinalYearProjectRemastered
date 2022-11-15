@@ -12,7 +12,7 @@ const MusicApi = [
 
     },
     {
-        Category : 'Happy',
+        Category : 'Sad',
         music : ['/songs/Sad/Allah Ke Bande  - Arshad Warsi - Kailash Kher.mp3',
         '/songs/Sad/Bimbaakash-Khai.mp3',
         '/songs/Sad/Deja vu - Olivia Rodrigo.mp3',
@@ -27,7 +27,7 @@ const MusicApi = [
         
     },
     {
-        Category : 'Happy',
+        Category : 'Neutral',
         music : [
             '/songs/Neutral/Astronaut In The Ocean. - Masked Wolf.mp3',
             '/songs/Neutral/BATASH- Shashwot Khadka.mp3',
