@@ -6,6 +6,7 @@ import './app.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './com/Nav'
 import EmotionDetection from './pages/EmotionDetection'
+import Practice from './pages/Practice'
 function App() {
   return (
     
@@ -16,6 +17,7 @@ function App() {
           <Route path="/music" element={<Music />} />
           <Route path='/video' element={<Video/>}/>
           <Route path='/emotion' element={<EmotionDetection/>}/>
+          <Route path='/practice' element={<Practice/>}/>
         </Routes>
       </Router>
       

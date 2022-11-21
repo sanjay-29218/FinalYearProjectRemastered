@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo } from 'react'
+import React, { useRef, useState, useEffect, useMemo, useCallback } from 'react'
 import './music.css'
 import MusicApi from '../com/MusicApi'
 import Nav from '../com/Nav'
@@ -9,55 +9,82 @@ import { GiNextButton, GiPreviousButton } from "react-icons/gi";
 import {SlPlaylist} from 'react-icons/sl'
 import ReactAudioPlayer from 'react-audio-player';
 import axios from 'axios';
+import Recommender from '../com/Recommender';
 
 function Music() {
 
     // Fethin data from the server
     const[play, setPlay] = useState('block');
     const[pause , setPause] = useState("none");
+    const [coutdown, setcoutdown] = useState(5);
     const[label, setLabel] = useState('')
     const audioEl = useRef();
-  
-        async function fetchData(){
-            const request = await axios.get('http://localhost:5000/musicapi');
-            const data = await request.data;
-            console.log(request.data);
-            setLabel(data.playlist)
-        }
-        fetchData();
+    const song_path = useRef();
+    const [src,setSrc] = useState('');
+    
+    async function fetchData(){
+        const request = await axios.get('http://localhost:5000/musicapi');
+        const data = await request.data;
+        console.log(request.data);
+        setLabel(data.playlist)
 
         
-  
-
-    // fetching label data for next song
-    
-        //   async function nextSong(){
-        //     const request = await axios.get('http://localhost:5000/musicap');
-        //     console.log(request.data)
-        //     const data = await request.data;
-        //     const label = data.folder;
-        //   }
-
-
-   
+        
+    }
+    useEffect(()=>{
+        fetchData();
+        console.log('hello world');
+        // audioEl.current.play();
+    },[])
 
     
-
+        
+       
     // Playing and pausing the music
   if(label===''){
     return <>Loading...</>
   }
-//    else if(Object.keys(currentSongs.labels).length===0) {
-//     return <>Labels not found</>
-//     }
-//     else{
-//         function maxValue() {
-//             return  Math.max(...Object.values(currentSongs.labels));
-//             // console.log(Object.values(currentSongs.labels))
-//             }
-//             const max = maxValue();
-//             const label = Object.keys(currentSongs.labels).find((key)=>currentSongs.labels[key]===max)
     else{
+        var musicdata = MusicApi.find((item)=>item.Category===label)
+        console.log(musicdata)
+        var musicarr = musicdata?.music;
+        var random = Math.floor(Math.random() * musicarr.length);
+        var randomSongPath = musicarr[random];
+        var musicname = randomSongPath.replace(`/songs/${label}/`,'').replace('.mp3','');
+
+
+        function nextSong(){
+            fetchData();
+            random = Math.floor(Math.random() * musicarr.length);
+            randomSongPath = musicarr[random];
+            musicname = randomSongPath.replace(`/songs/${label}/`,'')
+            let duration = audioEl.current.duration;
+            console.log(audioEl.current.currentTime)
+            if(audioEl.current.currentTime===duration){
+                if(coutdown!==0){
+                    setInterval(()=>{
+          
+                        setcoutdown((prev)=>{
+                          if(prev===0){
+                            window.location.href = "http://localhost:3000/music"
+                          }
+                          else return prev-1
+                        })}, 1000);
+                        <Recommender/>
+                }
+               
+                
+            }
+            audioEl.current.currentTime = 0;
+            audioEl.current.src=randomSongPath;
+            audioEl.current.play();
+           
+        }
+        
+
+        console.log(typeof(randomSongPath))
+       
+       
         return(
             <>
          <div className='music-container'  >
@@ -66,14 +93,12 @@ function Music() {
              <div className="image" ></div>
              <div className="music-player" >
                  <div className="slider-container">
-                 <div className="music-name">{
-                   MusicApi.find((item)=>item.Category===label).music[0]
-                 }</div>
+                 <div className="music-name">{musicname}</div>
                  <div className="current-time">00:00</div>
                  </div>
                  <div className="slider-container">
                      <div className="vol-down"><BsFillVolumeOffFill/></div>
-                     <input type="range" min={1} max={100} value={99} className='volume-slider' onChange='' />
+                     <input type="range" min={1} max={100} value={99} className='volume-slider' />
                      <div className="vol-up"><BsFillVolumeUpFill/></div>
                  </div>
                  <div className="track-info">
@@ -98,11 +123,11 @@ function Music() {
                          setPause('none');
                         
                      }}><AiFillPauseCircle /></div> 
-                     <div className="next-btn"  onClick={fetchData}><GiNextButton/></div>
+                     <div className="next-btn"  onClick={()=>{nextSong()}}><GiNextButton/></div>
                          </div>
-                 <audio controls ref={audioEl}>
-                    <source src={ MusicApi.find((item)=>item.Category===label).music[0]} type="audio/mp3" autoplay />
-                </audio>
+                 <audio ref={audioEl} src={randomSongPath} controls>
+                    {/* <source src={randomSongPath} ref={song_path} type="audio/mpeg"/> */}
+                 </audio>
                  </div>
          </div>
         </div>
