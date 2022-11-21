@@ -5,14 +5,14 @@ import Body from '../body/Body'
 import Footer from '../footer/Footer'
 
 
-export default function Player({spotify}) {
+export default function Player({label,fetchData}) {
   return (
     <div className='player'>
         <div className="player-body">
             <Sidebar/>
-            <Body spotify={spotify}/>
+            <Body label={label} />
         </div>
-        <Footer spotify={spotify}/>
+        <Footer label={label} fetchData={fetchData}  />
     </div>
   )
 }

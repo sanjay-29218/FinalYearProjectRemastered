@@ -1,19 +1,16 @@
 import React from 'react'
 import './songrow.css'
-export default function SongRow({track,playSong}) {
+export default function SongRow({songName,artist,category}) {
   const playSong = () => {}
   return (
   
     <div className='songRow' onClick={() => playSong()}>
-        <img className='songRow-album' src={track.album.images[0].url} alt="" />
+        <img className='songRow-album' src='' alt="" />
         <div className="song-rowinfo">
-            <h1>{"name"}</h1>
-            <p>
-                {track.artists.map((artist) => artist.name).join(", ")} -{" "}
-                {track.album.name}
-
-            </p>
+          <h1>{songName}</h1>
+            <h3>{artist}</h3>
         </div>
+        <h3>{category}</h3>
     </div>
   )
 }
