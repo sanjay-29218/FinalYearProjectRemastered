@@ -1,37 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './homepage.css'
 import Nav from '../com/Nav'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 function Homepage() {
-    // function getChar() {
+  const textEl = useRef();
+  useEffect(() => {
 
-    //   var i = 0;
-    //   var char = "MusicRedefined";
-    //   const interval = (function() {
-    //     // let i =0;
-    //     // const text = document.querySelector('.text');
-    //     // console.log(text.innerText , i);
-    //     // text.innerText = text.innerText+char[i];
-    //     // i++;
-    //       // if (i >= char.length) {
-    //       //     clearInterval(interval);
-    //       // }
-    //     console.log(i++)
-    //     if(i>5){
-    //       clearInterval(interval);
-    //     }
-    //   }, 100);
-  // }
-  // getChar()
-    
+    const msg = "Redefined";
+    const msgarr = msg.split("");
+    textEl.current.innerHTML = "";
+    for (let i = 0; i < msg.length; i++) {
+      setTimeout(() => {
+        textEl.current.innerText+= msgarr[i];
+      },  i*200);
+    }
+
+  }, [])
+
+
   return (
     <div>
-        <Nav/>
-        <div className="home-section">
-            <div className="image"></div>
-            <div className='text' >Music Redefined</div>
-            <div className='btn' ><Link to='/video' className='a'>Get Started</Link></div>
-        </div>
+      <Nav />
+      <div className="home-section">
+        <div className='text' ref={textEl} > Redefined</div>
+        <div className="image"></div>
+        <div className="home-music-img"><img src="/music.png" alt="" /></div>
+        <Link to='/video' ><DoubleArrowIcon className='arrow' fontSize='3rem' /></Link>
+      </div>
     </div>
   )
 }

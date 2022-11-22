@@ -8,7 +8,8 @@ const MusicApi = [
         '/songs/Happy/Man Magan – Deepak Bajracharya.mp3',
         '/songs/Happy/Im Yours - Jason Mraz.mp3',
         ],
-        artist:['Emiway Bantai', 'Bicha Bichama', 'Camila Cabello', 'Panic! At the Disco', 'Jason Mraz', 'Deepak Bajracharya']
+        artist:['Emiway Bantai', 'Bicha Bichama', 'Camila Cabello', 'Panic! At the Disco', 'Jason Mraz', 'Deepak Bajracharya'],
+        thumbnail:['/thumbnails/1.jpg', '/thumbnails/2.jpg', '/thumbnails/3.jpg', '/thumbnails/4.jpg', '/thumbnails/5.jpg', '/thumbnails/6.jpg'],
 
     },
     {
@@ -23,7 +24,8 @@ const MusicApi = [
         '/songs/Sad/Sasto Mutu - Sajjan Raj Vaidya.mp3',
         '/songs/Sad/Taral - Nidari - Bartika.mp3',
         ],
-        artist:['Arshad Warsi', 'Najeek', 'Khai', 'Olivia Rodrigo', 'Olivia Rodrigo', 'Rohan Rathore', 'Kailash Kher', 'Sajjan Raj Vaidya', 'Bartika']
+        artist:['Arshad Warsi', 'Najeek', 'Khai', 'Olivia Rodrigo', 'Olivia Rodrigo', 'Rohan Rathore', 'Kailash Kher', 'Sajjan Raj Vaidya', 'Bartika'],
+        thumbnail:['/thumbnails/7.jpg', '/thumbnails/8.jpg', '/thumbnails/9.jpg', '/thumbnails/10.jpg', '/thumbnails/11.jpg', '/thumbnails/12.jpg', '/thumbnails/13.jpg', '/thumbnails/14.jpg', '/thumbnails/15.jpg'],
         
     },
     {
@@ -40,7 +42,8 @@ const MusicApi = [
             '/songs/Neutral/If You Love Her - Forest Blakk.mp3',
             '/songs/Neutral/Timi Nai Hau - Sabin Rai.mp3',
         ],
-        artist:['Arshad Warsi', 'Najeek', 'Khai', 'Olivia Rodrigo', 'Olivia Rodrigo', 'Rohan Rathore', 'Kailash Kher', 'Sajjan Raj Vaidya', 'Bartika']
+        artist:['Arshad Warsi', 'Najeek', 'Khai', 'Olivia Rodrigo', 'Olivia Rodrigo', 'Rohan Rathore', 'Kailash Kher', 'Sajjan Raj Vaidya', 'Bartika'],
+        thumbnail:['/thumbnails/16.jpg', '/thumbnails/17.jpg', '/thumbnails/18.jpg', '/thumbnails/19.jpg', '/thumbnails/20.jpg', '/thumbnails/21.jpg', '/thumbnails/22.jpg', '/thumbnails/23.jpg', '/thumbnails/24.jpg', '/thumbnails/25.jpg'],
         
     }
 

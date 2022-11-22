@@ -1,7 +1,7 @@
 .home-section{
     width: 100vw;
     height: 100vh;
-    background-color: white;
+    background-color: rgb(228, 230, 232);
 
 }
 .image{
@@ -18,17 +18,22 @@
     transform: translate(0, -50%);
     padding: 0 2rem;
     font-size: 5rem;
+    color: black;
 }
-.btn{
-    position:absolute;
-    right: 50%;
-    bottom: 5rem;
-    transform: translateX(-50%, 0);
-    background-color:rgb(1 206 251) ;
-    border-radius: 1rem;
-    padding: 1rem;
-    cursor: pointer;
+.arrow{
+   position: absolute;
+   bottom: 2rem;
+   left: 50%;
+   font-size: 4rem;
+   transform: translateX(-50%);
 
+}
+.arrow:hover{
+    color: rgb(169, 169, 169);
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: transform .2s ease-in-out;
+    
 }
 .btn1{
     bottom: 1rem;
@@ -36,4 +41,10 @@
 .btn:hover{
     color: white;
     background-color:rgb(9 9 121)
+}
+.home-music-img>img{
+    position: absolute;
+    top: 10rem;
+    left: 2rem;
+    height: 20vh;
 }

@@ -5,6 +5,7 @@
     align-items: center;
     color: white;
     font-size: .8rem;
+    justify-content: space-between;
 }
 .songRow:hover{
     background-color: #282828;
