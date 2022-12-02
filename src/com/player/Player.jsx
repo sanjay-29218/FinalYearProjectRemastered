@@ -7,7 +7,7 @@ import Footer from '../footer/Footer'
 
 export default function Player({label,fetchData}) {
   const [songPath , setSongPath] = useState(null)
- 
+  
   return (
     <div className='player'>
         <div className="player-body">
@@ -16,5 +16,7 @@ export default function Player({label,fetchData}) {
         </div>
         <Footer label={label} fetchData={fetchData} songPath={songPath}  />
     </div>
+
+   
   )
 }

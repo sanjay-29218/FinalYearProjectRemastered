@@ -12,7 +12,9 @@ export default function Body({label,setSongPath}) {
   const imgEl = useRef();
   const visibilityEl = useRef();
   const [song,setSong] = useState(null); 
+
   var musicdata = MusicApi.find((item)=>item.Category===label)
+  console.log(label)
   var musicarr = musicdata?.music;
   var artistarr = musicdata?.artist;
   var thumbnailarr = musicdata?.thumbnail;

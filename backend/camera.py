@@ -33,6 +33,11 @@ class Video(object):
                 faces = face_classifier.detectMultiScale(frame, 1.3, 5)
                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 for x, y, w, h in faces:
+                    # find the largest face in the image
+
+                    areas = [w*h for x, y, w, h in faces] # get areas of all faces
+                    max_index = np.argmax(areas) # index of largest face
+                    x, y, w, h = faces[max_index]  
                     x1, y1 = x+w, y+h
                     cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 255), 1)
 
@@ -47,6 +52,7 @@ class Video(object):
 
                     cv2.line(frame, (x1, y1), (x1-30, y1), (255, 0, 255), 6)
                     cv2.line(frame, (x1, y1), (x1, y1-30), (255, 0, 255), 6)
+
 
                     roi_gray = gray[y:y + h, x:x + w]
                     roi_gray = cv2.resize(roi_gray, (48, 48), interpolation=cv2.INTER_AREA) # resize to 48x48
@@ -76,4 +82,3 @@ class Video(object):
 
     def reset_label(self):
         return self.folder_count.clear()
-

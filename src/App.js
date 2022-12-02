@@ -8,6 +8,8 @@ import Nav from './com/Nav'
 import EmotionDetection from './pages/EmotionDetection'
 import Practice from './pages/Practice'
 import Player from './com/player/Player';
+import Music from './pages/Music'
+import Musicfirebase from './com/Musicfirebase';
 function App() {
 
   return (
@@ -16,10 +18,11 @@ function App() {
       <Router>
         <Routes>
           <Route  path="/" element={<Homepage />} />
-          <Route path="/music" element={<Player />} />
+          <Route path="/music" element={<Music />} />
           <Route path='/video' element={<Video/>}/>
           <Route path='/emotion' element={<EmotionDetection/>}/>
           <Route path='/practice' element={<Practice/>}/>
+          <Route path='/musicfirebase' element={<Musicfirebase/>}/>
         </Routes>
       </Router>
       

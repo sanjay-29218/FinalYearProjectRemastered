@@ -8,18 +8,18 @@ const Video = () => {
     const [opacity, setopacity] = useState(1);
 
     useEffect(() => {
-      // const timer = () => 
-      // {
-      //   setInterval(()=>{
+      const timer = () => 
+      {
+        setInterval(()=>{
           
-      //     setcoutdown((prev)=>{
-      //       if(prev===0){
-      //         window.location.href = "http://localhost:3000/music"
-      //       }
-      //       else return prev-1
-      //     })}, 1000);
-      // }
-      //   timer();
+          setcoutdown((prev)=>{
+            if(prev===0){
+              window.location.href = "http://localhost:3000/music"
+            }
+            else return prev-1
+          })}, 1000);
+      }
+        timer();
     }, [])
     useEffect(() =>{
       if(opacity===1){
