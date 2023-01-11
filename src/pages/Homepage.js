@@ -13,7 +13,7 @@ function Homepage() {
     <div>
       <Nav />
       <div className="home-section">
-      <span style={{ color: 'red', fontWeight: 'bold' }} className='text'>
+      <span style={{ color: 'red', fontWeight: 'bold',fontSize:'3rem' }} className='text'>
           {/* Style will be inherited from the parent element */}
           <Typewriter
             words={['Music', 'Redefined']}

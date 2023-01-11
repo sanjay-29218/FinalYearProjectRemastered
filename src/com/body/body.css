@@ -1,4 +1,5 @@
 .body{
+    
     flex: .8;
     padding: 30px;
     background: linear-gradient(#322929,rgba(26,172,233,1));
@@ -12,7 +13,7 @@
     display: none;
 }
 .body-suffle{
-    font-size: 3rem;
+    font-size: 2rem;
 }
 .body-info>img{
     height:30vh;
@@ -34,7 +35,7 @@
     color:white
 }
 .body-icons>.MuiSvgIcon-root{
-    font-size: 2rem;
+    font-size: 1rem;
     margin-right: 1rem;
     margin-top: 1rem;
     cursor: pointer;
@@ -76,5 +77,14 @@
     bottom: 6rem;
     opacity: .5;
     right: 1rem;
+    cursor: pointer;
+}
+.full-label{
+    position: absolute;
+    top: 10rem;
+    font-size: 1rem;
+    right: 2rem;
+    color: white;
+    opacity: .5;
     cursor: pointer;
 }

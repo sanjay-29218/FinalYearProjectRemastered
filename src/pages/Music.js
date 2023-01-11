@@ -29,13 +29,14 @@ function Music() {
     }
     else {
         return   <>
-        {console.log(label)}
+        
              <Player label={label} fetchData={fetchData} />
              
              
         </>
 
     }
+    
 }
 // }
 export default Music

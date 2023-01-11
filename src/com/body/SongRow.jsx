@@ -2,7 +2,6 @@ import React from 'react'
 import './songrow.css'
 import MusicApi from '../MusicApi'
 export default function SongRow({songName,artist,category,thumbnail,songPath,setSong}) {
- 
   const playSong = (songPath) => {
     setSong(songPath);
     console.log(songPath);

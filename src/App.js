@@ -9,7 +9,7 @@ import EmotionDetection from './pages/EmotionDetection'
 import Practice from './pages/Practice'
 import Player from './com/player/Player';
 import Music from './pages/Music'
-import Musicfirebase from './com/Musicfirebase';
+import MusicUpload from './com/MusicUpload';
 function App() {
 
   return (
@@ -22,7 +22,7 @@ function App() {
           <Route path='/video' element={<Video/>}/>
           <Route path='/emotion' element={<EmotionDetection/>}/>
           <Route path='/practice' element={<Practice/>}/>
-          <Route path='/musicfirebase' element={<Musicfirebase/>}/>
+          <Route path='/musicupload' element={<MusicUpload/>}/>
         </Routes>
       </Router>
       
